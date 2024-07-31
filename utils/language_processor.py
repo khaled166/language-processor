@@ -1,4 +1,3 @@
-# Import necessary packages
 import pandas as pd  # For data manipulation and analysis
 import fasttext  # For language detection
 from transformers import MarianMTModel, MarianTokenizer  # For translation model and tokenizer
@@ -38,14 +37,17 @@ class LanguageProcessor:
         self.language_detection_model = None
         self.translation_model = None
         self.tokenizer = None
-        self._load_data()
-        self._load_models()
+        self._load_models()  # Load models at initialization
 
     def _load_data(self):
         """
         Load data from the specified Excel file into a pandas DataFrame.
         """
         self.df = pd.read_excel(self.data_path)
+        # Ensure only the first column is used, no matter the header name
+        first_column_name = self.df.columns[0]
+        self.df = self.df[[first_column_name]]
+        self.df.columns = ['News_Title']  # Rename for consistency in processing
 
     def _load_models(self):
         """
@@ -102,6 +104,10 @@ class LanguageProcessor:
         """
         Process the DataFrame to detect language and translate text for the 'News_Title' column.
         """
+        # Check if data is loaded
+        if self.df is None:
+            raise ValueError("Data not loaded. Please call _load_data() first.")
+
         # Apply the language detection function to the 'News_Title' column using swifter for parallel processing
         self.df['Detected_Language'], self.df['Accuracy'] = zip(*self.df['News_Title'].swifter.apply(self.detect_language_and_accuracy))
         # Apply the translation function to the 'News_Title' column using swifter for parallel processing
@@ -109,17 +115,22 @@ class LanguageProcessor:
 
     def get_dataframe(self):
         """
-        Get the processed DataFrame.
+        Get the processed DataFrame with detected languages and translations.
         
         Returns:
-            pd.DataFrame: The processed DataFrame with detected languages and translations.
+            pd.DataFrame: The processed DataFrame with the original text, detected language, accuracy, and English translation.
         """
-        return self.df
+        # Check if data is processed
+        if 'Detected_Language' not in self.df.columns or 'English Translation' not in self.df.columns:
+            raise ValueError("Data not processed. Please call process_data() first.")
+        
+        return self.df[['News_Title', 'Detected_Language', 'Accuracy', 'English Translation']]
 
 # Example usage:
 # data_path = 'path_to_your_data.xlsx'
 # model_loc = 'path_to_your_fasttext_model.bin'
 # translation_model_name = 'Helsinki-NLP/opus-mt-mul-en'
 # processor = LanguageProcessor(data_path, model_loc, translation_model_name)
-# processor.process_data()
-# processed_df = processor.get_dataframe()
+# processor._load_data()  # Load the data
+# processor.process_data()  # Process the data
+# processed_df = processor.get_dataframe()  # Get the processed data
