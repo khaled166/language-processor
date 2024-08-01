@@ -51,10 +51,10 @@ The project is organized as follows:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/khaled166/language-processor.git
+    
+    cd https://github.com/khaled166/language-processor.git
     ```
-
 2. **Create a virtual environment:**
 
     ```bash
