@@ -15,7 +15,7 @@ This repository features a FastAPI-based web service that detects the language o
 
 The project is organized as follows:
 
-├── data/
+├── dgit ata/
 │ ├── cleaned_data/
 │ ├── output/
 │ └── row_data/
