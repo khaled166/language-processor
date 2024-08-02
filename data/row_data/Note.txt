@@ -1,0 +1,5 @@
+"This folder should includes a csv file named "News.csv" with the following header's:
+
+"Supplier_Name	News_Title	News_Link	News_Date	Description	Initial_Classification
+Machine_Learning	Confidence	Trusted_Language"
+

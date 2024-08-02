@@ -1,0 +1,5 @@
+"Due to the large size of the model, it is not directly pushed to the GitHub repository.
+Instead, when running the application from app.py, the app will invoke functions
+from fasttext_preinstall.py in the utils folder. It will check if the model is present
+In the specified path; if not, the model will be downloaded to the designated
+directory before continuing with the application execution process."

@@ -1,0 +1,5 @@
+"This folder should includes an excel file named "cleaned_data.xlsx" with the following header's:
+
+"index	Supplier_Name	News_Title	News_Link	News_Date	Description	
+Initial_Classification	Machine_Learning	Confidence	Trusted_Language"
+
