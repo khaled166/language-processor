@@ -15,18 +15,18 @@ This repository features a FastAPI-based web service that detects the language o
 
 The project is organized as follows:
 
-├── dgit ata/
-│ ├── cleaned_data/
-│ ├── output/
-│ └── row_data/
+├── data/
+│   ├── cleaned_data/
+│   ├── output/
+│   └── row_data/
 ├── models/
-│ └── fast_api_model/
-│ └── lid.176.bin
+│   ├── fast_api_model/
+│   └── lid.176.bin
 ├── notebooks/
-  └── language_processor_notebook.ipynb
+│   └── language_processor_notebook.ipynb
 ├── utils/
-│ ├── fasttext_model_manager.py
-│ └── language_processor.py
+│   ├── fasttext_model_manager.py
+│   └── language_processor.py
 ├── .gitignore
 ├── app.py
 ├── README.md
@@ -52,8 +52,6 @@ The project is organized as follows:
 
     ```bash
     git clone https://github.com/khaled166/language-processor.git
-    
-    cd https://github.com/khaled166/language-processor.git
     ```
 2. **Create a virtual environment:**
 
