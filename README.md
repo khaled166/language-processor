@@ -15,22 +15,22 @@ This repository features a FastAPI-based web service that detects the language o
 
 The project is organized as follows:
 
-├── data/
-│   ├── cleaned_data/
-│   ├── output/
-│   └── row_data/
-├── models/
-│   ├── fast_api_model/
-│   └── lid.176.bin
-├── notebooks/
-│   └── language_processor_notebook.ipynb
-├── utils/
-│   ├── fasttext_model_manager.py
-│   └── language_processor.py
-├── .gitignore
-├── app.py
-├── README.md
-└── requirements.txt
+├── data/  
+│   ├── cleaned_data/  
+│   ├── output/  
+│   └── row_data/  
+├── models/  
+│   ├── fast_api_model/  
+│   └── lid.176.bin  
+├── notebooks/  
+│   └── language_processor_notebook.ipynb  
+├── utils/  
+│   ├── fasttext_model_manager.py  
+│   └── language_processor.py  
+├── .gitignore  
+├── app.py  
+├── README.md  
+└── requirements.txt  
 
 - `data/`: Contains raw and processed data files.
   - `cleaned_data/`: Contains cleaned data ready for processing.
