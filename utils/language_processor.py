@@ -52,7 +52,8 @@ class LanguageProcessor:
     def _load_models(self):
         """
         Load the language detection and translation models.
-        """
+        """## Folder Structure
+
         # Load the FastText language detection model
         self.language_detection_model = fasttext.load_model(self.model_loc)
         # Load the MarianMT translation model and tokenizer
@@ -134,3 +135,4 @@ class LanguageProcessor:
 # processor._load_data()  # Load the data
 # processor.process_data()  # Process the data
 # processed_df = processor.get_dataframe()  # Get the processed data
+
