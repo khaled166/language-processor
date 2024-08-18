@@ -107,7 +107,45 @@ This project leverages two key models for its language processing tasks:
     ```
     The application will start and can be accessed at `http://127.0.0.1:8000`.
 
-## Usage
+
+## Text Validation
+
+The `TextValidator` class is a utility designed to ensure that input text meets specific criteria regarding word and sentence lengths. This validation process helps maintain the quality and consistency of the text data before it is processed for language detection and translation.
+
+### Features
+
+- **Word Length Validation**:
+  - Ensures that each word in the text falls within specified minimum and maximum lengths.
+  - Default word length constraints:
+    - Minimum: 1 character
+    - Maximum: 45 characters (suitable for languages like Greek with longer words).
+
+- **Sentence Length Validation**:
+  - Checks that each sentence in the text contains a number of words within the allowed range.
+  - Default sentence length constraints:
+    - Minimum: 3 words
+    - Maximum: 5000 words.
+
+### Example Usage
+
+The `TextValidator` can be used to validate text before it is processed by the language detection and translation models. Here’s how you can use it:
+
+```python
+from utils.text_validation import TextValidator
+
+# Initialize the validator with optional constraints
+validator = TextValidator(min_len=2, max_len=50, min_sentence_length=5, max_sentence_length=1000)
+
+# Validate word lengths in a text
+is_valid, message = validator.validate_word_lengths("This is a test sentence.")
+print(message)  # Output: "All words meet the length criteria."
+
+# Validate sentence length in a text
+is_valid, message = validator.validate_sentence_length("This is a test sentence.")
+print(message)  # Output: "All sentences meet the length criteria."
+```
+
+## API Usage
 
 ### API Documentation
 
@@ -153,7 +191,7 @@ This project leverages two key models for its language processing tasks:
         "English Translation": "Hello everyone"
       }
     ]
-    ```
+    ```    
 
 ## Notes
 
