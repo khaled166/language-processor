@@ -180,3 +180,5 @@ async def process_and_get_data(file: UploadFile = File(...)):
 # Main entry point to run the FastAPI app using Uvicorn
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+
+
